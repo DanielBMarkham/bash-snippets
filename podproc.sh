@@ -12,11 +12,11 @@ INFILE="$(basename -s .mp4 "${1:-temp.mp4}")"
 PROCESSINGDIRECTORY=podproctempdir
 
 # INIT FILES AND DIRS OK
-if [ -f "$INFILE" ]; then
+if [ -f "$INFILE".mp4 ]; then
 echo "The file '$INFILE' exists."
 mkdir -p "$PROCESSINGDIRECTORY"
 
-STARTFILESIZE=$(stat -c%s "$INFILE")
+STARTFILESIZE=$(stat -c%s "$INFILE",mp4)
 
 echo ""
 date "Begin script at " "$STARTTIME"
@@ -63,7 +63,7 @@ nice -20 gdrive upload "$INFILE".mp4 -p 1H1x-chUXuTLVDZ0-a3f3BmSy3TET2hXx
 echo "files moved. modified files that were uploaded are left in directory"
 
 echo ""
-ENDFILESIZE=$(stat -c%s "$INFILE")
+ENDFILESIZE=$(stat -c%s "$INFILE".mp4)
 echo "Size of $INFILE = $ENDFILESIZE bytes."
 
 else
