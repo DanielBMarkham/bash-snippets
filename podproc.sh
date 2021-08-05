@@ -15,7 +15,7 @@ if [ -f "$INFILE".mp4 ]; then
 echo "The file '$INFILE' exists."
 mkdir -p "$PROCESSINGDIRECTORY"
 
-STARTFILESIZE=$(stat -c%s "$INFILE",mp4)
+STARTFILESIZE=$(stat -c%s "$INFILE".mp4)
 STARTFILESIZEINMB=$(( $( stat -c '%s' "$INFILE".mp4)/1024/1024))MB
 
 echo ""
