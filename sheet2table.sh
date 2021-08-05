@@ -49,8 +49,7 @@ echo "convert google spreadsheet with articles to a table to put on blog"
 
 echo "$TOPTABLEPART" > "$OUTGOING"
 
-tail -n +4 "$INCOMING"  | (awk '{ print "          <tr>\n            <td>\n              <a href=''\""$3"\"''>\n                "$2"\n              </a>\n            </td>\n            <td>\n              "$1"\n            </td>\n          </tr>" }' FS='\t') >> "$OUTGOING"
+tail -n +5 "$INCOMING"  | (awk '{ print "          <tr>\n            <td>\n              <a href=''\""$3"\"''>\n                "$2"\n              </a>\n            </td>\n            <td>\n              "$1"\n            </td>\n          </tr>" }' FS='\t') >> "$OUTGOING"
 
 echo "$BOTTOMTABLEPART" >> "$OUTGOING"
-
 
