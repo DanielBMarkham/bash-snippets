@@ -5,8 +5,7 @@
 # requires ffmpeg and ffmpeg-normalize
 # also requires gdrive to be set up. See https://olivermarshall.net/how-to-upload-a-file-to-google-drive-from-the-command-line/?utm_source=pocket_mylist
 
-STARTTIME=$(date '+%B %V %T.%3N')
-
+STARTTIME=`date "+%B %V %T.%3N"`
 # INIT VARS OK
 INFILE="$(basename -s .mp4 "${1:-temp.mp4}")"
 PROCESSINGDIRECTORY=podproctempdir
@@ -17,6 +16,7 @@ echo "The file '$INFILE' exists."
 mkdir -p "$PROCESSINGDIRECTORY"
 
 STARTFILESIZE=$(stat -c%s "$INFILE",mp4)
+STARTFILESIZEINMB=$(( $( stat -c '%s' "$INFILE".mp4)/1024/1024))MB
 
 echo ""
 date "Begin script at " "$STARTTIME"
@@ -64,7 +64,8 @@ echo "files moved. modified files that were uploaded are left in directory"
 
 echo ""
 ENDFILESIZE=$(stat -c%s "$INFILE".mp4)
-echo "Size of $INFILE = $ENDFILESIZE bytes."
+ENDFILESIZEINMB=$(( $( stat -c '%s' "$INFILE".mp4)/1024/1024))MB
+echo "Size of $INFILE".mp4" = $ENDFILESIZE bytes."
 
 else
 echo "The file '$INFILE' does not exists."
@@ -72,6 +73,15 @@ echo ""
 
 fi
 
-ENDTIME=$(date '+%B %V %T.%3N')
+#ENDTIME=$(date '+%B %V %T.%3N')
+#ENDTIME=`date "+%B %V %T.%3N"`
+ENDTIME=`date "+%B %V %T.%3N"`
 date "End script at " "$ENDTIME"
+echo ""
+echo "###"
+echo "Start Time: $STARTTIME"
+echo "Start Filesize: $STARTFILESIZEINMB"
+echo "End Time: $ENDTIME"
+echo "End Filesize: $ENDFILESIZEINMB"
+echo "###"
 echo ""
