@@ -9,6 +9,9 @@ STARTTIME=`date "+%B %V %T.%3N"`
 # INIT VARS OK
 INFILE="$(basename -s .mp4 "${1:-temp.mp4}")"
 PROCESSINGDIRECTORY=podproctempdir
+FILERUNLENGTH=$(ffmpeg -i "$INFILE".mp4 2>&1 | grep Duration | cut -d ' ' -f 4 | sed s/,//)
+
+
 
 # INIT FILES AND DIRS OK
 if [ -f "$INFILE".mp4 ]; then
@@ -57,6 +60,7 @@ rm normalized/temp3.mkv
 
 echo "upload resulting file to gdrive"
 
+UPLOADBEGINTIME=`date "+%B %V %T.%3N"`
 nice -20 gdrive upload "$INFILE".mp3 -p 1AmrPilvwu6z6HwUTwN_rr2hOG2sjDni2
 nice -20 gdrive upload "$INFILE".mp4 -p 1H1x-chUXuTLVDZ0-a3f3BmSy3TET2hXx
 
@@ -79,8 +83,11 @@ ENDTIME=`date "+%B %V %T.%3N"`
 date "End script at " "$ENDTIME"
 echo ""
 echo "###"
+echo "Processed file: $INFILE".mp4
+echo "Run legnth: $FILERUNLENGTH"
 echo "Start Time: $STARTTIME"
 echo "Start Filesize: $STARTFILESIZEINMB"
+echo "Upload begin , end: $ENDTIME, $UPLOADBEGINTIME"
 echo "End Time: $ENDTIME"
 echo "End Filesize: $ENDFILESIZEINMB"
 echo "###"
