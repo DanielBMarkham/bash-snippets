@@ -9,7 +9,7 @@ INCOMING="${1:-in.mp3}"
 OUTGOING="${2:-out.mp3}"
 TARGETLENGTH="${3:-20}"
 
-echo $TARGETLENGTH
+echo "$TARGETLENGTH"
 
 #duration=$(ffprobe "$INCOMING" 2>&1 | awk '/Duration/ { print $2 }')
 #hours=$(echo -e $duration | awk -F ":" '{print $1}')
@@ -33,7 +33,7 @@ getFileLengthInMinutes(){
 	#echo "Length in minutes: $lengthinminutes"
 	#echo
 	#echo "Target number of chunks of size $TARGETMINUTES minutes: $TARGETNUMBEROFCHUNKS"
-	echo "$TARGETNUMBEROFCHUNKS"
+	echo $(expr $TARGETNUMBEROFCHUNKS + 1)
 	}
 	
 numberOfChunksBasedOnSilenceLength() {
@@ -41,26 +41,26 @@ numberOfChunksBasedOnSilenceLength() {
 	#echo "d $1"
 	#echo " dd $2"
 	#echo
-	echo "$(ffmpeg -i "$1" -af silencedetect=d=$2 -f null - |& awk '/silencedetect/ {print $4,$5}' | wc -l)"
+	echo $(ffmpeg -i "$1" -af silencedetect=d=$2 -f null - |& awk '/silencedetect/ {print $4,$5}' | wc -l)
 	}
 
-GOALCHUNKS=$(getFileLengthInMinutes $INCOMING 20)
+GOALCHUNKS=$(getFileLengthInMinutes "$INCOMING" 20)
 #echo "goal number of chunks = $GOALCHUNKS"
 
 
 numchunks=0
 COUNT=50
-while [ $COUNT -gt 0 ] && [ $numchunks -lt "$GOALCHUNKS" ] ;do
+while [ $COUNT -gt 0 ] && [ $numchunks -lt $GOALCHUNKS ] ;do
          #echo $COUNT
          SILENCESIZE=$(echo "$COUNT / 10" | bc -l)
 	 parm=$(printf "%0.2f\n" "$SILENCESIZE")
 	 #echo "goal number of chunks = $dog"
 	 echo "$parm"
-	 numchunks=$(numberOfChunksBasedOnSilenceLength "$INCOMING $parm")
+	 numchunks=$(numberOfChunksBasedOnSilenceLength "$INCOMING" $parm)
 	 #TARGETLENGTH
-	 echo "$numchunks"
+	 echo $numchunks
 	 echo
-         COUNT=$COUNT-1
+         let COUNT=COUNT-1
   done
   
   echo
