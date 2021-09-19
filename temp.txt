@@ -1,0 +1,16 @@
+speed= 591x
+silence_end: 318.864
+speed= 607x
+silence_end: 819.015
+speed= 571x
+silence_end: 1381.57
+silence_start: 1409.74
+silence_end: 1411.29
+speed= 589x
+silence_end: 2410.31
+silence_start: 2500.03
+silence_end: 2501.07
+speed= 604x
+silence_end: 2980.43
+speed= 607x
+silence_end: 3113.2
