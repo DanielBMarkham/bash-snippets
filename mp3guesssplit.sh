@@ -69,11 +69,11 @@ while [ $COUNT -gt 0 ] && [ $numchunks -lt $GOALCHUNKS ] ;do
 
 
 #ffmpeg -i 2021-09-17-nerd-roundup.mp3 -af "silencedetect=d=1.2[outa]" -map [outa] test1.mp3
-mp3splt -s -pmin=1.2 -pnt=4 2021-09-17-nerd-roundup.mp3
-ffmpeg -i 2021-09-17-nerd-roundup.mp3 -af silencedetect=d=1.0 -f null - |& awk '/silencedetect/ {print $4,$5}'
-cat temp.txt | grep 'silence' | sort -k2 -n
+#mp3splt -s -pmin=1.2 -pnt=4 2021-09-17-nerd-roundup.mp3
+#ffmpeg -i 2021-09-17-nerd-roundup.mp3 -af silencedetect=d=1.0 -f null - |& awk '/silencedetect/ {print $4,$5}'
+#cat temp.txt | grep 'silence' | sort -k2 -n
 
 
-MIN_FRAGMENT_DURATION
+#MIN_FRAGMENT_DURATION
 
-./split_by_silence.sh 2021-09-17-nerd-roundup.mp3 moo%03d.mp3
+#./split_by_silence.sh 2021-09-17-nerd-roundup.mp3 moo%03d.mp3

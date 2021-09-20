@@ -69,10 +69,19 @@ echo "files moved. modified files that were uploaded are left in directory"
 echo ""
 ENDFILESIZE=$(stat -c%s "$INFILE".mp4)
 ENDFILESIZEINMB=$(( $( stat -c '%s' "$INFILE".mp4)/1024/1024))MB
+
+echo "splitting up into 4 chunks for possible later transcription"
+# there's a script to figure out the exact number of chunks.
+# For now, 4 is most always going to work. Use that
+# Don't code things you don't need! :)
+mp3splt -s -pmin=1.2 -pnt=4 "$INFILE".mp3
+echo "done"
+
+
 echo "Size of $INFILE".mp4" = $ENDFILESIZE bytes."
 
 else
-echo "The file '$INFILE' does not exists."
+echo "The file '$INFILE' does not exist."
 echo ""
 
 fi
