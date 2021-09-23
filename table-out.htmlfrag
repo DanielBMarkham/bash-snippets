@@ -1,0 +1,266 @@
+<div id="tableOuter">
+    <div id="tableInner">
+      <table style="white-space:revert;">
+        <caption>
+          <div style="text-align:center; font-size: xx-large; padding-bottom: 1em;">links
+        </caption>
+        <thead style="z-index:initial;">
+          <tr class="font-weight:bold;">
+            <td style="width:50%;">
+              <strong>STORY</strong>
+            </td>
+            <td>
+              <strong>BUT WHY?</strong>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://www.cnet.com/news/spacex-crew-dragon-cupola-provides-awe-inspiring-view-of-the-earth-from-space/">
+                Civilian astronauts in space? Wowser!!
+              </a>
+              <br/>
+              <a href="https://inspiration4.com/">
+                Inspiration 4 homepage
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.L022007">
+                Optical-Cavity-Induced Current 
+              </a>
+              <br/>
+              <a href="https://www.youtube.com/watch?v=2tGRhTXKh8A">
+                I want to believe. Is there a real Santa? Here's the main scientist doing a layman's ptich on YT
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://beam-wisdoms.clau.se/en/latest/index.html">
+                BEAM Wisdoms
+              </a>
+              <br/>
+              <a href="https://github.com/googleapis/elixir-google-api">
+                Elixir Google API: Server-side access to all of the Google cloud apps from Elixir. You can also just use small scripts and CLI
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.cnn.com/2021/09/10/tech/digital-news-coverage-9-11/index.html">
+                Some of the most iconic 9/11 news coverage is lost. Blame Adobe Flash
+              </a>
+              <br/>
+              <a href="https://lucmassahome.wordpress.com/2019/10/15/8-reasons-why-drm-is-bad/">
+                Farm tractors , ebooks, old apps and games, lost historical footage, millions of websites stop working. DRM and forced upgrades are destroying out history
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://psyche.co/ideas/the-fungal-mind-on-the-evidence-for-mushroom-intelligence">
+                The fungal mind: on the evidence for mushroom intelligence
+              </a>
+              <br/>
+              <a href="https://www.ranker.com/list/the-15-smartest-animals-on-earth/analise.dubner">
+                Top 15 smartest animals on the planet
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.allkpop.com/article/2021/09/social-media-influencer-model-created-from-artificial-intelligence-lands-100-sponsorships">
+                Social media influencer/model created from artificial intelligence lands 100 sponsorships
+              </a>
+              <br/>
+              <a href="https://towardsdatascience.com/positive-use-cases-of-deepfakes-49f510056387?gi=8fc9596790ac">
+                Towards Data Science has a great article on the positive uses of deepfake AI. My guess is that once folks start using it regularly for any reason, we're all in the boat.
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.hanselman.com/blog/minimal-apis-at-a-glance-in-net-6">
+                .NET 6 Minimal APIs at a glance
+              </a>
+              <br/>
+              <a href="https://blog.danlew.net/2017/07/27/an-introduction-to-functional-reactive-programming/">
+                An introduction to functional reactive programming
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://justuseapp.com/page/stripe-ban">
+                Stripe banned us for payment disputes but we never had a dispute
+              </a>
+              <br/>
+              <a href="https://news.ycombinator.com/item?id=28522784">
+                HN discussion with a shoiutout from the Stripe cofounder doing a mea culpa, fwiw
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.realclearmarkets.com/articles/2021/09/14/amazon_of_information_why_ethereum_will_overtake_bitcoin_794355.html">
+                 'Amazon of Information': Why Ethereum Will Overtake Bitcoin 
+              </a>
+              <br/>
+              <a href="https://news.ycombinator.com/item?id=28457762">
+                HN discussion on Web3, one place this is all headed.
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://fortune.com/2021/09/13/bitcoin-billionaires-winklevoss-twins-woolly-mammoth/">
+                Bitcoin billionaires bet big on reviving woolly mammoths to combat climate change
+              </a>
+              <br/>
+              <a href="https://en.wikipedia.org/wiki/De-extinction">
+                Wikipedia page for de-extinction
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://github.com/fsharp/fslang-suggestions/issues/243#issuecomment-916079347">
+                FSharp Designer on downsides of Type Level Programming 
+              </a>
+              <br/>
+              <a href="https://jrsinclair.com/articles/2019/type-classes-what-i-wish-someone-had-explained-about-functional-programming/">
+                It's all the fun of inheritenace in C++ only mostly-invisible and with types. Don makes a great case for why it shouldn't be in there. Here's a great explainer article on typeclasses
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.science.org/content/article/barnyard-breakthrough-researchers-successfully-potty-train-cows">
+                Researchers successfully potty train cows
+              </a>
+              <br/>
+              <a href="https://wildlifeinformer.com/exotic-pets-that-can-be-house-trained/">
+                Eight exotic pets that can be house trained
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.engadget.com/defense-department-nuclear-spacecraft-propulsion-211213947.html">
+                Defense Department seeks nuclear propulsion for small spacecraft
+              </a>
+              <br/>
+              <a href="https://www.diu.mil/work-with-us/submit-solution/PROJ00351">
+                Relevant source: Defense Innovation Unit: Advanced Nuclear Propulsion and Power. Apply now! Closing in next two weeks
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://news.usni.org/2021/09/12/u-k-royal-marines-want-to-acquire-autonomous-hybrid-surface-subsurface-stealth-vessel">
+                U.K. Royal Marines Want to Acquire Autonomous Hybrid Surface, Subsurface Stealth Vessel
+              </a>
+              <br/>
+              <a href="https://seawaves.com/?p=15062">
+                Royal Navy Outlines Future Vision. All kinds of cool concept art here
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.slashgear.com/study-finds-astronaut-blood-mixed-with-mars-soil-makes-ultra-hard-concrete-13690672/">
+                Study finds astronaut blood mixed with Mars soil makes ultra-hard concrete
+              </a>
+              <br/>
+              <a href="https://www.forbes.com/sites/jamiecartereurope/2021/09/14/how-will-we-make-concrete-for-a-future-martian-colony-using-the-blood-sweat-or-tears-of-astronauts-say-scientists/">
+                We Can Build A Future Martian Colony Literally Using The Blood, Sweat Or Tears Of Astronauts, Say Scientists
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.the-sun.com/news/3637574/scorned-wife-raids-ex-husbands-lab/">
+                Scorned wife raids ex-husband’s cryogenics lab stealing frozen brains of people who hoped to be brought back to life
+              </a>
+              <br/>
+              <a href="https://www.thetimes.co.uk/article/cryogenics-tycoon-danila-medvedev-accuses-ex-wife-of-stealing-frozen-bodies-g6mmbl3h3">
+                Cryonics tycoon accuses ex-wife of stealing frozen bodies
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="">
+                
+              </a>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.19fortyfive.com/2021/09/the-navys-last-stealth-zumwalt-destroyer-has-a-huge-problem/">
+                The Navy’s Last Stealth Zumwalt Destroyer Has a Huge Problem
+              </a>
+              <br/>
+              <a href="https://en.wikipedia.org/wiki/Zumwalt-class_destroyer">
+                Seven Billion dollars, three ships, no guns, systems don't work, and the damned thing breaks down all of the time, but everybody got paid! Win!
+              </a><br/>
+            </td>
+          <td>
+          </td>
+          </tr>
+</tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <a href=""></a>
+            </td>
+            <td>
+              <p></p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">---</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
