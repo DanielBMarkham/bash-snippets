@@ -35,7 +35,7 @@ cd "$PROCESSINGDIRECTORY" || exit
 # ONLY DO THIS ONCE, NOT TWICE, UNLESS VERY NOISY
 # nice -20 ffmpeg -i "$INFILE".mp4 -af "afftdn=nf=-25" temp2.mp4
 # nice -20 ffmpeg -i temp2.mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
-nice -20 ffmpeg -i "$INFILE".mp4 -af "afftdn=nf=-25, highpass=f=100, lowpass=f=4000" temp3.mp4
+nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
 
 nice -20 ffmpeg-normalize temp3.mp4
 nice -20 ffmpeg -i  normalized/temp3.mkv temp4.mp4
