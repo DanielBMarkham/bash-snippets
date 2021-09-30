@@ -1,12 +1,12 @@
 #!/bin/awk -f
-BEGIN {FS="\t";
+BEGIN {FS="\t";RS="\r\n";
   }
   
   {print "           <div class=card-column> <div class=card>\n            <div class=card>\n              <a href=\""$3"\">\n                "$2"\n              </a>";
   if ($4==""){
     print "            </div>\n            \n           </div> </div>";
   }
-  else{printf "              <br/>\n              ";
+  else{printf "              <br/><hr/>\n              ";
   printf "<a href=\"";
   printf $5;
   print "\">\n                "$4"\n              </a><br/>";
