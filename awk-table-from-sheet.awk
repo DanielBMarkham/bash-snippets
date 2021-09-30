@@ -6,7 +6,7 @@ BEGIN {FS="\t";RS="\r\n";
   if ($4==""){
     print "            </td>\n            <td>\n              "$1"\n            </td>\n          </tr>";
   }
-  else{printf "              <br/>\n              ";
+  else{printf "              <br/><hr/>\n              ";
   printf "<a href=\"";
   printf $5;
   print "\">\n                "$4"\n              </a><br/>";
