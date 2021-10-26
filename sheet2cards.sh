@@ -469,6 +469,6 @@ echo "$BOTTOMCARDSPART" >> "$OUTGOING"
 
 # update to correct date of this coming friday
 
-THISCOMINGFRIDAY=$(echo $(date --date='next friday' +%Y)-$(date --date='next friday' +%m)-$(date --date='next friday' +%d))(date --date='next friday' +%d))
+THISCOMINGFRIDAY=$(echo $(date --date='next friday' +%Y)-$(date --date='next friday' +%m)-$(date --date='next friday' +%d))
 
-sed -i "s/2021-08-20'/\"$THISCOMINGFRIDAY\"/g" $OUTGOING
+sed -i "s/2021-08-20/$THISCOMINGFRIDAY/g" $OUTGOING
