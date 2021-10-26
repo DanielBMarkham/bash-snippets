@@ -467,8 +467,14 @@ tail -n +5 "$INCOMING"  | (awk -f awk-cards-from-sheet.awk) >> "$OUTGOING"
 
 echo "$BOTTOMCARDSPART" >> "$OUTGOING"
 
-# update to correct date of this coming friday
+echo "file saved. Updating to correct date of this coming friday"
 
 THISCOMINGFRIDAY=$(echo $(date --date='next friday' +%Y)-$(date --date='next friday' +%m)-$(date --date='next friday' +%d))
 
-sed -i "s/2021-08-20/$THISCOMINGFRIDAY/g" $OUTGOING
+echo "2021-08-20 in $OUTGOING should be $THISCOMINGFRIDAY"
+sed -i "s/2021-08-20/$THISCOMINGFRIDAY/g" "$OUTGOING"
+
+echo "done"
+
+
+
