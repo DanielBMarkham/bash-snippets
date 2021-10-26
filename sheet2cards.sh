@@ -232,11 +232,35 @@ read -r -d '' BOTTOMCARDSPART << 'EOF'
 
 
 
+            </div></div>
+            <div class="card-column">
+              <div class="card">
+                <a
+                  href="https://danielbmarkham.com/nerd-roundup-morgue/">
+                  <h4>BACK TO ARCHIVES</h4>
+                  <p>
+                    Return to master archive index
+                  </p>
+              </a>
+              </div>
+            </div>
 
+            <div class="card-column">
+              <div class="card">
+                <a
+                  href="https://danielbmarkham.com/">
+                  <h4>BACK TO BLOG</h4>
+                  <p>
+                    Return to blog/podcast
+                  </p>
+              </a>
+              </div>
+           </div>
 
+          </div> <!-- CARD ROW -->
+        </div> <!-- POST BODY-->
+      </div> <!-- POST WRAP -->
 
-      </div>
-  </div>
  </article>
  </main>
   <footer class="footer pt-10">
@@ -442,3 +466,9 @@ echo "$TOPCARDSPART" > "$OUTGOING"
 tail -n +5 "$INCOMING"  | (awk -f awk-cards-from-sheet.awk) >> "$OUTGOING"
 
 echo "$BOTTOMCARDSPART" >> "$OUTGOING"
+
+# update to correct date of this coming friday
+
+THISCOMINGFRIDAY=$(echo $(date --date='next friday' +%Y)-$(date --date='next friday' +%m)-$(date --date='next friday' +%d))(date --date='next friday' +%d))
+
+sed -i "s/2021-08-20'/\"$THISCOMINGFRIDAY\"/g" $OUTGOING
