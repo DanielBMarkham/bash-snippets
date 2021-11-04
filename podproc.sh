@@ -37,20 +37,20 @@ cd "$PROCESSINGDIRECTORY" || exit
 # nice -20 ffmpeg -i temp2.mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
 nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
 
-nice -20 ffmpeg-normalize temp3.mp4
-nice -20 ffmpeg -i  normalized/temp3.mkv temp4.mp4
+nice -20 ffmpeg-normalize temp3.mp4 -ofmt mp4
+#nice -20 ffmpeg -i  normalized/temp3.mkv temp4.mp4
 
 echo "Normalizing done. Now making separate audio file"
 
-nice -20 ffmpeg -i  temp4.mp4 temp4.mp3
+nice -20 ffmpeg -i  normalized/temp3.mp4 temp3.mp3
 
 echo "Podcast preprocessing complete."
 echo "delete incoming file that was just processed"
 rm "$INFILE".mp4
 
 echo "Renaming last temp file to incoming file."
-mv temp4.mp4 "$INFILE".mp4
-mv temp4.mp3 "$INFILE".mp3
+mv temp3.mp4 "$INFILE".mp4
+mv temp3.mp3 "$INFILE".mp3
 
 echo "Deleting remaining temp files"
 echo ""
