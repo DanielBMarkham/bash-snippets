@@ -35,28 +35,54 @@ cd "$PROCESSINGDIRECTORY" || exit
 # ONLY DO THIS ONCE, NOT TWICE, UNLESS VERY NOISY
 # nice -20 ffmpeg -i "$INFILE".mp4 -af "afftdn=nf=-25" temp2.mp4
 # nice -20 ffmpeg -i temp2.mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
-nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
+nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" highpasslowpass.mp4
 
-nice -20 ffmpeg-normalize temp3.mp4 -ofmt mp4
-#nice -20 ffmpeg -i  normalized/temp3.mkv temp4.mp4
+if [ -f "highpasslowpass.mp4" ]; then
+    echo "Higpass lowpass filter has ran."
+    rm "$INFILE".mp4
+else 
+    echo "highpass lowpass filter DID NOT RUN!!"
+    exit 2
+fi
+
+nice -20 ffmpeg-normalize highpasslowpass.mp4
+
+if [ -f "normalized/highpasslowpass.mkv" ]; then
+    echo "File has been normalized into mkv format."
+    rm highpasslowpass.mp4
+else 
+    echo "normalization DID NOT HAPPEN!!"
+    exit 2
+fi
+
+nice -20 ffmpeg -i  normalized/highpasslowpass.mkv podcastvideo.mp4
+
+if [ -f "podcastvideo.mp4" ]; then
+    echo "Normalized file converted back to mp4."
+    rm normalized/highpasslowpass.mkv
+else 
+    echo "normalized file conversion to mp4 DID NOT HAPPEN!!"
+    exit 2
+fi
+
 
 echo "Normalizing done. Now making separate audio file"
 
-nice -20 ffmpeg -i  normalized/temp3.mp4 temp3.mp3
+nice -20 ffmpeg -i  podcastvideo.mp4 podcastaudio.mp3
 
 echo "Podcast preprocessing complete."
-echo "delete incoming file that was just processed"
-rm "$INFILE".mp4
+#echo "delete incoming file that was just processed"
+#rm "$INFILE".mp4
 
-echo "Renaming last temp file to incoming file."
-mv temp3.mp4 "$INFILE".mp4
-mv temp3.mp3 "$INFILE".mp3
+#echo "Renaming last temp file to incoming file."
+mv podcastvideo.mp4 "$INFILE".mp4
+mv podcastaudio.mp3 "$INFILE".mp3
 
-echo "Deleting remaining temp files"
-echo ""
+#echo "Deleting remaining temp files"
+#echo ""
 
-rm temp*
-rm normalized/temp3.mkv
+#rm temp*
+#rm normalized/temp3.mkv
 
 echo "upload resulting file to gdrive"
 
