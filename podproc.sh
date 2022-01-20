@@ -33,56 +33,13 @@ cp ./"$INFILE".mp4 ./"$PROCESSINGDIRECTORY"
 cd "$PROCESSINGDIRECTORY" || exit
 
 # ONLY DO THIS ONCE, NOT TWICE, UNLESS VERY NOISY
-# nice -20 ffmpeg -i "$INFILE".mp4 -af "afftdn=nf=-25" temp2.mp4
-# nice -20 ffmpeg -i temp2.mp4 -af "highpass=f=100, lowpass=f=4000" temp3.mp4
-nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" highpasslowpass.mp4
+nice -20 ffmpeg -i "$INFILE".mp4 -af "highpass=f=100, lowpass=f=4000" band-filtered.mp4 -y
+mkdir -p normalized
+nice -20 ffmpeg-normalize band-filtered.mp4 -o normalized/normalized.mkv -f
 
-if [ -f "highpasslowpass.mp4" ]; then
-    echo "Higpass lowpass filter has ran."
-    rm "$INFILE".mp4
-else 
-    echo "highpass lowpass filter DID NOT RUN!!"
-    exit 2
-fi
-
-nice -20 ffmpeg-normalize highpasslowpass.mp4
-
-if [ -f "normalized/highpasslowpass.mkv" ]; then
-    echo "File has been normalized into mkv format."
-    rm highpasslowpass.mp4
-else 
-    echo "normalization DID NOT HAPPEN!!"
-    exit 2
-fi
-
-nice -20 ffmpeg -i  normalized/highpasslowpass.mkv podcastvideo.mp4
-
-if [ -f "podcastvideo.mp4" ]; then
-    echo "Normalized file converted back to mp4."
-    rm normalized/highpasslowpass.mkv
-else 
-    echo "normalized file conversion to mp4 DID NOT HAPPEN!!"
-    exit 2
-fi
-
-
-echo "Normalizing done. Now making separate audio file"
-
-nice -20 ffmpeg -i  podcastvideo.mp4 podcastaudio.mp3
-
-echo "Podcast preprocessing complete."
-#echo "delete incoming file that was just processed"
-#rm "$INFILE".mp4
-
-#echo "Renaming last temp file to incoming file."
-mv podcastvideo.mp4 "$INFILE".mp4
-mv podcastaudio.mp3 "$INFILE".mp3
-
-#echo "Deleting remaining temp files"
-#echo ""
-
-#rm temp*
-#rm normalized/temp3.mkv
+rm "$INFILE".mp4
+nice -20 ffmpeg -i normalized/normalized.mkv ./"$INFILE".mp4 -y
+nice -20 ffmpeg -i "$INFILE".mp4 "$INFILE".mp3 -y
 
 echo "upload resulting file to gdrive"
 
@@ -96,19 +53,10 @@ echo ""
 ENDFILESIZE=$(stat -c%s "$INFILE".mp4)
 ENDFILESIZEINMB=$(( $( stat -c '%s' "$INFILE".mp4)/1024/1024))MB
 
-echo "splitting up into 4 chunks for possible later transcription"
-# there's a script to figure out the exact number of chunks.
-# For now, 4 is most always going to work. Use that
-# Don't code things you don't need! :)
-mp3splt -s -pmin=1.2 -pnt=4 "$INFILE".mp3
-echo "done"
-
-
-echo "Size of $INFILE".mp4" = $ENDFILESIZE bytes."
-
 else
 echo "The file '$INFILE' does not exist."
 echo ""
+
 
 fi
 
@@ -127,3 +75,6 @@ echo "End Time: $ENDTIME"
 echo "End Filesize: $ENDFILESIZEINMB"
 echo "###"
 echo ""
+
+
+
