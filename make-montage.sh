@@ -13,14 +13,14 @@ GLOBIGNORE="*.png"
 for f in *; do 
     ffmpeg -i "$f" "${f%.*}.png"
 done
-unset GLOGIGNORE;
+unset GLOBIGNORE;
 
 
 # Delete everything not a png
 # ===========================
 GLOBIGNORE="*.png"
 rm *
-unset GLOGIGNORE;
+unset GLOBIGNORE;
 
 
 # Randomly numerize the files
