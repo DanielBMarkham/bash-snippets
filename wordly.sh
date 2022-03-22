@@ -195630,7 +195630,7 @@ EOF
 
 
 
-pickawordz() 
+pickaword()
   { 
     WORDLENGTH=$1; 
     FREQSUM=$( (echo "$WORDS") |  awk -v wordlength="$WORDLENGTH" 'length($1) == wordlength {s+=$2}END{print s}')
@@ -195639,10 +195639,8 @@ pickawordz()
     
     }
 
-
-pickawordz 3
-echo
-pickawordz 4
-echo
-pickawordz 5
-echo
+wordsByLength()
+{
+    WORDLENGTH=$1; 
+    ( (echo "$WORDS") |  awk -v wordlength="$WORDLENGTH" 'length($1) == wordlength {print $1}')
+}
