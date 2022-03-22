@@ -28,5 +28,6 @@
     "!Split",
     "!Split sequence"
   ],
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  "rpc.enabled": true
 }
