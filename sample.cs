@@ -16,3 +16,4 @@ public class DoNiceThings {
 float function foo(int bar) {
   return 42/bar;
 }
+
